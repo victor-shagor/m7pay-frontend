@@ -17,7 +17,7 @@ export const servicePath = "https://api.coloredstrategies.com";
 
 /* 
 Color Options:
-"light.purple", "light.blue", "light.green", "light.orange", "light.red", "dark.purple", "dark.blue", "dark.green", "dark.orange", "dark.red"
+"light.bright-red", "light.purple", "light.blue", "light.green", "light.orange", "light.red", "dark.bright-red", "dark.purple", "dark.blue", "dark.green", "dark.orange", "dark.red"
 */
 export const isMultiColorActive = false;
-export const defaultColor = "light.purple";
+export const defaultColor = "light.bright-red";

@@ -13,6 +13,7 @@ import NotificationContainer from "./components/common/react-notifications/Notif
 import { isMultiColorActive } from "./constants/defaultValues";
 import main from "./views";
 import app from "./views/app";
+import auth from "./views/auth";
 import error from "./views/error";
 
 class App extends Component {
@@ -32,6 +33,7 @@ class App extends Component {
             <Router>
               <Switch>
                 <Route path="/app" component={app} />
+                <Route path="/auth" component={auth} />
                 <Route path="/error" exact component={error} />
                 <Route path="/" exact component={main} />
                 <Redirect to="/error" />
