@@ -67,6 +67,15 @@ class ColorSwitcher extends Component {
           <p className="text-muted mb-2">Light Theme</p>
           <div className="d-flex flex-row justify-content-between mb-4">
             <a
+              href="#light.bright-red"
+              className={`theme-color theme-color-bright-red ${
+                selectedColor === "light.bright-red" ? "active" : ""
+              }`}
+              onClick={e => this.changeThemeColor(e, "light.bright-red")}
+            >
+              <span>light.bright-red</span>
+            </a>
+            <a
               href="#light.purple"
               className={`theme-color theme-color-purple ${
                 selectedColor === "light.purple" ? "active" : ""
@@ -114,6 +123,15 @@ class ColorSwitcher extends Component {
           </div>
           <p className="text-muted mb-2">Dark Theme</p>
           <div className="d-flex flex-row justify-content-between">
+            <a
+              href="#dark.bright-red"
+              className={`theme-color theme-color-bright-red ${
+                selectedColor === "dark.bright-red" ? "active" : ""
+              }`}
+              onClick={e => this.changeThemeColor(e, "dark.bright-red")}
+            >
+              <span>dark.bright-red</span>
+            </a>
             <a
               href="#dark.purple"
               className={`theme-color theme-color-purple ${
