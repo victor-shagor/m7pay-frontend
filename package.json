@@ -52,7 +52,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "kcd-scripts pre-commit"
+      "pre-commit": "kcd-scripts pre-commit",
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
     }
   },
   "babel": {
@@ -87,6 +88,11 @@
     "jsxBracketSameLine": false,
     "proseWrap": "always"
   },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
   "browserslist": [
     ">0.2%",
     "not dead",
@@ -94,6 +100,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "cz-conventional-changelog": "^3.2.0",
     "kcd-scripts": "^6.2.0",
     "node-sass": "^4.11.0"
   }
