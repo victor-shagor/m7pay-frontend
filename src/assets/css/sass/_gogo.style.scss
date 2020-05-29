@@ -639,6 +639,24 @@ p {
   color: $button-text-color !important;
 }
 
+.error-page {
+  height: 80vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .error-img {
+    display: inline-block;
+    background-image: url("https://i.imgur.com/yW2W9SC.png");
+    background-size: cover;
+    background-position: center;
+    width: 40vh;
+    height: 40vh;
+  }
+}
+
 /* 02.Buttons */
 
 button {
@@ -694,8 +712,10 @@ button {
 }
 
 .btn-auth {
-  &:hover {
+  &:hover, &:focus {
     background-color: #06163a !important;
+    border-color: #06163a !important;
+
   }
 }
 
@@ -5652,9 +5672,9 @@ input:-webkit-autofill {
   border-radius: 10px;
   @include depth(1);
 
-  .image-side {
+  .image-side, .signup-image-side {
     width: 40%;
-    background: url('/assets/img/auth-2-1.png') no-repeat center top;
+    background: url('/assets/img/auth-2.png') no-repeat center top;
     background-size: cover;
     padding: 40px;
     //padding: 80px 40px;
@@ -5666,6 +5686,11 @@ input:-webkit-autofill {
     .h3 {
       line-height: 0.8rem;
     }
+  }
+
+  .signup-image-side {
+    background: url('/assets/img/auth-1.png') no-repeat center top;
+    background-size: cover;
   }
 
   .form-side {
@@ -5680,7 +5705,7 @@ input:-webkit-autofill {
   @include respond-below(md) {
     flex-direction: column;
 
-    .image-side {
+    .image-side, .signup-image-side {
       width: 100%;
       padding: 60px;
       border-top-right-radius: 10px;
@@ -5702,7 +5727,7 @@ input:-webkit-autofill {
   @include respond-below(xs) {
     flex-direction: column;
 
-    .image-side {
+    .image-side, .signup-image-side {
       padding: 35px 30px;
     }
 

@@ -1,4 +1,4 @@
-/* Gogo Language Texts
+/* m7Pay Language Texts
 
 Table of Contents
 
@@ -10,9 +10,11 @@ Table of Contents
 
 module.exports = {
   /* 01.General */
-  'general.copyright': 'Gogo React © 2018 All Rights Reserved.',
+  'general.copyright': 'm7Pay © 2020 All Rights Reserved.',
 
   /* 02.User Login, Logout, Register */
+  'user.login-text': 'Login',
+  'user.login-question': 'Got an Account?',
   'user.login-title': 'Welcome back',
   'user.login-continue': 'Sign in to continue',
   'user.login-button': 'Sign In',
@@ -22,13 +24,18 @@ module.exports = {
   'user.login-terms-full': 'Terms of Service',
   'user.login-privacy': 'Privacy',
   'user.login-privacy-full': 'Privacy Policy',
-  'user.register-link': 'Create account',
   'user.forgot-password': 'Forgot Password',
   'user.email': 'E-mail',
   'user.password': 'Password',
   'user.forgot-password-question': 'Forgot password?',
   'user.fullname': 'Full Name',
+  'user.register-link': 'Create account',
   'user.register-button': 'Create My Account',
+  'user.register-country-none': "Don't see your country?",
+  'user.register-country-add': "Let us know you're interested",
+  'user.register-agree':
+    "By clicking on the 'Create My Account' button, you agree to M7Pay's ",
+  'user.register-terms': 'terms of acceptable use.',
   'user.reset-password-button': 'Reset Password',
   'user.buy': 'BUY',
   'user.username': 'Username',
