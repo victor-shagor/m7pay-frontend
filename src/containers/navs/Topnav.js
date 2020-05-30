@@ -1,46 +1,43 @@
-import React, { Component } from "react";
-import { injectIntl } from "react-intl";
+import React, {Component} from 'react'
+import {injectIntl} from 'react-intl'
 import {
   UncontrolledDropdown,
   DropdownItem,
   DropdownToggle,
   DropdownMenu,
-  Input
-} from "reactstrap";
+  Input,
+} from 'reactstrap'
+import {NavLink} from 'react-router-dom'
+import {connect} from 'react-redux'
 
-import { NavLink } from "react-router-dom";
-import { connect } from "react-redux";
-
-import IntlMessages from "../../helpers/IntlMessages";
 import {
   setContainerClassnames,
   clickOnMobileMenu,
-  changeLocale
-} from "../../redux/actions";
-
+  changeLocale,
+} from '../../redux/actions'
 import {
   menuHiddenBreakpoint,
   searchPath,
-  localeOptions
-} from "../../constants/defaultValues";
+  localeOptions,
+} from '../../constants/defaultValues'
 
-import { MobileMenuIcon, MenuIcon } from "../../components/svg";
-import TopnavEasyAccess from "./Topnav.EasyAccess";
-import TopnavNotifications from "./Topnav.Notifications";
+import {MobileMenuIcon, MenuIcon} from '../../components/svg'
+import TopnavEasyAccess from './Topnav.EasyAccess'
+import TopnavNotifications from './Topnav.Notifications'
 
 class TopNav extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       isInFullScreen: false,
-      searchKeyword: ""
-    };
+      searchKeyword: '',
+    }
   }
 
-  handleChangeLocale = locale => {
-    this.props.changeLocale(locale);
-  };
+  handleChangeLocale = (locale) => {
+    this.props.changeLocale(locale)
+  }
   isInFullScreen = () => {
     return (
       (document.fullscreenElement && document.fullscreenElement !== null) ||
@@ -49,149 +46,147 @@ class TopNav extends Component {
       (document.mozFullScreenElement &&
         document.mozFullScreenElement !== null) ||
       (document.msFullscreenElement && document.msFullscreenElement !== null)
-    );
-  };
-  handleSearchIconClick = e => {
+    )
+  }
+  handleSearchIconClick = (e) => {
     if (window.innerWidth < menuHiddenBreakpoint) {
-      let elem = e.target;
-      if (!e.target.classList.contains("search")) {
-        if (e.target.parentElement.classList.contains("search")) {
-          elem = e.target.parentElement;
+      let elem = e.target
+      if (!e.target.classList.contains('search')) {
+        if (e.target.parentElement.classList.contains('search')) {
+          elem = e.target.parentElement
         } else if (
-          e.target.parentElement.parentElement.classList.contains("search")
+          e.target.parentElement.parentElement.classList.contains('search')
         ) {
-          elem = e.target.parentElement.parentElement;
+          elem = e.target.parentElement.parentElement
         }
       }
 
-      if (elem.classList.contains("mobile-view")) {
-        this.search();
-        elem.classList.remove("mobile-view");
-        this.removeEventsSearch();
+      if (elem.classList.contains('mobile-view')) {
+        this.search()
+        elem.classList.remove('mobile-view')
+        this.removeEventsSearch()
       } else {
-        elem.classList.add("mobile-view");
-        this.addEventsSearch();
+        elem.classList.add('mobile-view')
+        this.addEventsSearch()
       }
     } else {
-      this.search();
+      this.search()
     }
-  };
+  }
   addEventsSearch = () => {
-    document.addEventListener("click", this.handleDocumentClickSearch, true);
-  };
+    document.addEventListener('click', this.handleDocumentClickSearch, true)
+  }
   removeEventsSearch = () => {
-    document.removeEventListener("click", this.handleDocumentClickSearch, true);
-  };
+    document.removeEventListener('click', this.handleDocumentClickSearch, true)
+  }
 
-  handleDocumentClickSearch = e => {
-    let isSearchClick = false;
+  handleDocumentClickSearch = (e) => {
+    let isSearchClick = false
     if (
       e.target &&
       e.target.classList &&
-      (e.target.classList.contains("navbar") ||
-        e.target.classList.contains("simple-icon-magnifier"))
+      (e.target.classList.contains('navbar') ||
+        e.target.classList.contains('simple-icon-magnifier'))
     ) {
-      isSearchClick = true;
-      if (e.target.classList.contains("simple-icon-magnifier")) {
-        this.search();
+      isSearchClick = true
+      if (e.target.classList.contains('simple-icon-magnifier')) {
+        this.search()
       }
     } else if (
       e.target.parentElement &&
       e.target.parentElement.classList &&
-      e.target.parentElement.classList.contains("search")
+      e.target.parentElement.classList.contains('search')
     ) {
-      isSearchClick = true;
+      isSearchClick = true
     }
 
     if (!isSearchClick) {
-      const input = document.querySelector(".mobile-view");
-      if (input && input.classList) input.classList.remove("mobile-view");
-      this.removeEventsSearch();
+      const input = document.querySelector('.mobile-view')
+      if (input && input.classList) input.classList.remove('mobile-view')
+      this.removeEventsSearch()
       this.setState({
-        searchKeyword: ""
-      });
+        searchKeyword: '',
+      })
     }
-  };
-  handleSearchInputChange = e => {
+  }
+  handleSearchInputChange = (e) => {
     this.setState({
-      searchKeyword: e.target.value
-    });
-  };
-  handleSearchInputKeyPress = e => {
-    if (e.key === "Enter") {
-      this.search();
+      searchKeyword: e.target.value,
+    })
+  }
+  handleSearchInputKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      this.search()
     }
-  };
+  }
 
   search = () => {
-    this.props.history.push(searchPath + "/" + this.state.searchKeyword);
+    this.props.history.push(`${searchPath}/${this.state.searchKeyword}`)
     this.setState({
-      searchKeyword: ""
-    });
-  };
+      searchKeyword: '',
+    })
+  }
 
   toggleFullScreen = () => {
-    const isInFullScreen = this.isInFullScreen();
+    const isInFullScreen = this.isInFullScreen()
 
-    var docElm = document.documentElement;
+    const docElm = document.documentElement
     if (!isInFullScreen) {
       if (docElm.requestFullscreen) {
-        docElm.requestFullscreen();
+        docElm.requestFullscreen()
       } else if (docElm.mozRequestFullScreen) {
-        docElm.mozRequestFullScreen();
+        docElm.mozRequestFullScreen()
       } else if (docElm.webkitRequestFullScreen) {
-        docElm.webkitRequestFullScreen();
+        docElm.webkitRequestFullScreen()
       } else if (docElm.msRequestFullscreen) {
-        docElm.msRequestFullscreen();
+        docElm.msRequestFullscreen()
       }
-    } else {
-      if (document.exitFullscreen) {
-        document.exitFullscreen();
-      } else if (document.webkitExitFullscreen) {
-        document.webkitExitFullscreen();
-      } else if (document.mozCancelFullScreen) {
-        document.mozCancelFullScreen();
-      } else if (document.msExitFullscreen) {
-        document.msExitFullscreen();
-      }
+    } else if (isInFullScreen && document.exitFullscreen) {
+      document.exitFullscreen()
+    } else if (isInFullScreen && document.webkitExitFullscreen) {
+      document.webkitExitFullscreen()
+    } else if (isInFullScreen && document.mozCancelFullScreen) {
+      document.mozCancelFullScreen()
+    } else if (isInFullScreen && document.msExitFullscreen) {
+      document.msExitFullscreen()
     }
     this.setState({
-      isInFullScreen: !isInFullScreen
-    });
-  };
+      isInFullScreen: !isInFullScreen,
+    })
+  }
 
   handleLogout = () => {
     //logout
-  };
+  }
 
   menuButtonClick = (e, menuClickCount, containerClassnames) => {
-    e.preventDefault();
+    e.preventDefault()
 
     setTimeout(() => {
-      var event = document.createEvent("HTMLEvents");
-      event.initEvent("resize", false, false);
-      window.dispatchEvent(event);
-    }, 350);
+      const event = document.createEvent('HTMLEvents')
+      event.initEvent('resize', false, false)
+      window.dispatchEvent(event)
+    }, 350)
     this.props.setContainerClassnames(
       ++menuClickCount,
       containerClassnames,
-      this.props.selectedMenuHasSubItems
-    );
-  };
+      this.props.selectedMenuHasSubItems,
+    )
+  }
   mobileMenuButtonClick = (e, containerClassnames) => {
-    e.preventDefault();
-    this.props.clickOnMobileMenu(containerClassnames);
-  };
+    e.preventDefault()
+    this.props.clickOnMobileMenu(containerClassnames)
+  }
 
   render() {
-    const { containerClassnames, menuClickCount, locale } = this.props;
-    const { messages } = this.props.intl;
+    const {containerClassnames, menuClickCount, locale} = this.props
+    const {messages} = this.props.intl
     return (
       <nav className="navbar fixed-top">
         <NavLink
           to="#"
           className="menu-button d-none d-md-block"
-          onClick={e =>
+          onClick={(e) =>
             this.menuButtonClick(e, menuClickCount, containerClassnames)
           }
         >
@@ -200,7 +195,7 @@ class TopNav extends Component {
         <NavLink
           to="#"
           className="menu-button-mobile d-xs-block d-sm-block d-md-none"
-          onClick={e => this.mobileMenuButtonClick(e, containerClassnames)}
+          onClick={(e) => this.mobileMenuButtonClick(e, containerClassnames)}
         >
           <MobileMenuIcon />
         </NavLink>
@@ -209,14 +204,15 @@ class TopNav extends Component {
           <Input
             name="searchKeyword"
             id="searchKeyword"
-            placeholder={messages["menu.search"]}
+            placeholder={messages['menu.search']}
             value={this.state.searchKeyword}
-            onChange={e => this.handleSearchInputChange(e)}
-            onKeyPress={e => this.handleSearchInputKeyPress(e)}
+            onChange={(e) => this.handleSearchInputChange(e)}
+            onKeyPress={(e) => this.handleSearchInputKeyPress(e)}
           />
           <span
             className="search-icon"
-            onClick={e => this.handleSearchIconClick(e)}
+            onClick={(e) => this.handleSearchIconClick(e)}
+            onKeyPress={(e) => this.handleSearchIconClick(e)}
           >
             <i className="simple-icon-magnifier" />
           </span>
@@ -233,7 +229,7 @@ class TopNav extends Component {
               <span className="name">{locale.toUpperCase()}</span>
             </DropdownToggle>
             <DropdownMenu className="mt-3" right>
-              {localeOptions.map(l => {
+              {localeOptions.map((l) => {
                 return (
                   <DropdownItem
                     onClick={() => this.handleChangeLocale(l.id)}
@@ -241,7 +237,7 @@ class TopNav extends Component {
                   >
                     {l.name}
                   </DropdownItem>
-                );
+                )
               })}
             </DropdownMenu>
           </UncontrolledDropdown>
@@ -291,23 +287,24 @@ class TopNav extends Component {
           </div>
         </div>
       </nav>
-    );
+    )
   }
 }
 
-const mapStateToProps = ({ menu, settings }) => {
-  const { containerClassnames, menuClickCount, selectedMenuHasSubItems } = menu;
-  const { locale } = settings;
+const mapStateToProps = ({menu, settings}) => {
+  const {containerClassnames, menuClickCount, selectedMenuHasSubItems} = menu
+  const {locale} = settings
   return {
     containerClassnames,
     menuClickCount,
     selectedMenuHasSubItems,
-    locale
-  };
-};
+    locale,
+  }
+}
 export default injectIntl(
-  connect(
-    mapStateToProps,
-    { setContainerClassnames, clickOnMobileMenu, changeLocale }
-  )(TopNav)
-);
+  connect(mapStateToProps, {
+    setContainerClassnames,
+    clickOnMobileMenu,
+    changeLocale,
+  })(TopNav),
+)

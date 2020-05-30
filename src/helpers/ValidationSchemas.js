@@ -2,15 +2,16 @@ import * as Yup from 'yup'
 
 export const SignupSchema = Yup.object().shape({
   email: Yup.string()
-    .min(2, 'Too short')
-    .max(50, 'Too long')
-    .email('Valid email is required'),
+    .required('error.required')
+    .min(2, 'error.tooShort')
+    .max(50, 'error.tooLong')
+    .email('error.invalid.email'),
   password: Yup.string()
-    .required('Required')
-    .min(5, 'Too short')
+    .required('error.required')
+    .min(5, 'error.tooShort')
     .test(
       'password-strength',
-      'Password must contain at least 1 lowercase, 1 uppercase, 1 number and 8 characters',
+      'error.invalid.password',
       function passwordStrength(value) {
         return /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})/.test(value)
       },
@@ -20,24 +21,19 @@ export const SignupSchema = Yup.object().shape({
 
 export const LoginSchema = Yup.object().shape({
   email: Yup.string()
-    .min(2, 'Too short')
-    .max(50, 'Too long')
-    .email('Valid email is required'),
+    .required('error.required')
+    .min(2, 'error.tooShort')
+    .max(50, 'error.tooLong')
+    .email('error.invalid.email'),
   password: Yup.string()
-    .required('Required')
-    .min(5, 'Too short')
-    .test(
-      'password-strength',
-      'Password must contain at least 1 lowercase, 1 uppercase, 1 number and 8 characters',
-      function passwordStrength(value) {
-        return /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})/.test(value)
-      },
-    ),
+    .required('error.required')
+    .min(5, 'error.min.password'),
 })
 
 export const ForgotPasswordSchema = Yup.object().shape({
   email: Yup.string()
-    .min(2, 'Too short')
-    .max(50, 'Too long')
-    .email('Valid email is required'),
+    .required('error.required')
+    .min(2, 'error.tooShort')
+    .max(50, 'error.tooLong')
+    .email('error.invalid.email'),
 })

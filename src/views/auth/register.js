@@ -1,46 +1,33 @@
 import React from 'react'
-import {
-  Row,
-  Card,
-  CardTitle,
-  Form,
-  Label,
-  Input,
-  Button,
-  FormGroup,
-} from 'reactstrap'
+import {Row, Card, CardTitle} from 'reactstrap'
 import {NavLink} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {Formik} from 'formik'
-import Select from 'react-select'
 import {Helmet} from 'react-helmet'
 import {registerUser} from '../../redux/actions'
 import {SignupSchema} from '../../helpers/ValidationSchemas'
 import IntlMessages from '../../helpers/IntlMessages'
 import {Colxx} from '../../components/common/CustomBootstrap'
+import SignupForm from '../../components/pages/SignupForm'
 
-const Register = () => {
-  const email = 'demo@gogo.com'
-  const password = 'gogo123'
-  const country = 'Nigeria'
-
-  const countries = [
-    {label: 'Nigeria', value: 'Nigeria'},
-    {label: 'Kenya', value: 'Kenya'},
-    {label: 'South Africa', value: 'South Africa'},
-  ]
+const Signup = () => {
+  // const email = 'demo@gogo.com'
+  // const password = 'gogo123'
 
   const initialValues = {
-    email,
-    password,
-    country,
+    email: '',
+    password: '',
+    country: '',
   }
 
-  const onUserRegister = () => {
-    if (email !== '' && password !== '') {
-      // props.history.push("/");
-      console.log('Success')
-    }
+  const onUserSignup = (values, {setSubmitting}) => {
+    // props.history.push("/");
+    // Send only country value instead of object... in saga
+    // values.country = values.country.value
+    console.log(values)
+    // eslint-disable-next-line no-alert
+    alert('Signup success!')
+    setSubmitting(false)
   }
 
   return (
@@ -79,62 +66,8 @@ const Register = () => {
             <Formik
               initialValues={initialValues}
               validationSchema={SignupSchema}
-              onValidSubmit={onUserRegister()}
-              component={({
-                /*isSubmitting, isValidating, error, */ handleSubmit,
-              }) => (
-                <Form
-                  className="av-tooltip tooltip-label-right"
-                  onSubmit={
-                    handleSubmit
-                  } /*loading={!isValidating && isSubmitting}*/
-                >
-                  <FormGroup className="error-l-75">
-                    <Label className="form-group has-float-label mb-4">
-                      <Input type="email" defaultValue={email} />
-                      <span>
-                        <IntlMessages id="user.email" />
-                      </span>
-                    </Label>
-                    <Label className="form-group has-float-label mb-4">
-                      <Input type="password" defaultValue={password} />
-                      <span>
-                        <IntlMessages id="user.password" />
-                      </span>
-                    </Label>
-                    <Select
-                      className="react-select"
-                      classNamePrefix="react-select"
-                      name="form-field-name"
-                      options={countries}
-                      value={country}
-                      onChange={(val) => console.log(val)}
-                    />
-                    <div className="mt-1 mb-4">
-                      <span className="text-muted">
-                        <IntlMessages id="user.register-country-none" />{' '}
-                      </span>
-                      <IntlMessages id="user.register-country-add" />
-                    </div>
-                    <Button
-                      color="primary"
-                      className="btn-shadow btn-block font-weight-normal btn-auth"
-                      size="lg"
-                      onClick={() => onUserRegister()}
-                    >
-                      <IntlMessages id="user.register-button" />
-                    </Button>
-                    <div className="mt-3">
-                      <span>
-                        <IntlMessages id="user.register-agree" />
-                      </span>
-                      <span className="primary-red font-weight-bold">
-                        <IntlMessages id="user.register-terms" />
-                      </span>
-                    </div>
-                  </FormGroup>
-                </Form>
-              )}
+              onSubmit={onUserSignup}
+              component={SignupForm}
             />
           </div>
         </Card>
@@ -150,4 +83,4 @@ const mapStateToProps = ({authUser}) => {
 
 export default connect(mapStateToProps, {
   registerUser,
-})(Register)
+})(Signup)
