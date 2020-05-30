@@ -24,8 +24,10 @@ const Login = () => {
   }
 
   const onUserLogin = (values, {setSubmitting}) => {
-    console.log(values, setSubmitting)
+    console.log(values)
     // dispatch(loginUser(values, history))
+    // eslint-disable-next-line no-alert
+    alert('Login success!')
     setSubmitting(false)
   }
   return (

@@ -7,7 +7,12 @@ import CustomFormInput from '../../components/common/CustomFormInput'
 const ForgotPasswordForm = ({handleSubmit, isValid, isSubmitting}) => (
   <Form className="av-tooltip tooltip-label-right" onSubmit={handleSubmit}>
     <FormGroup className="form-group has-float-label error-l-100 mb-4">
-      <Field name="email" type="email" component={CustomFormInput} />
+      <Field
+        component={CustomFormInput}
+        name="email"
+        type="email"
+        testId="email"
+      />
     </FormGroup>
 
     <div className="d-flex justify-content-end align-items-center">

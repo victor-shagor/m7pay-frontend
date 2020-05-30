@@ -15,6 +15,8 @@ const ForgotPassword = () => {
 
   const onPasswordSubmit = (values, {setSubmitting}) => {
     console.log(values)
+    // eslint-disable-next-line no-alert
+    alert('Password Reset success!')
     setSubmitting(false)
   }
 
