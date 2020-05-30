@@ -45,7 +45,10 @@ module.exports = {
   'error.required': 'Required',
   'error.tooShort': 'Too short!',
   'error.tooLong': 'Too long!',
+  'error.min.password': 'Password must be at least 5 characters',
   'error.invalid.email': 'Valid email is required',
+  'error.invalid.password':
+    'Password must contain at least 1 lowercase, 1 uppercase, 1 number and 8 characters',
 
   /* 04.Menu */
   'menu.app': 'Home',

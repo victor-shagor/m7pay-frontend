@@ -14,7 +14,7 @@ const ForgotPassword = () => {
   }
 
   const onPasswordSubmit = (values, {setSubmitting}) => {
-    console.log(values, setSubmitting)
+    console.log(values)
     setSubmitting(false)
   }
 

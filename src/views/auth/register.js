@@ -19,7 +19,7 @@ import {SignupSchema} from '../../helpers/ValidationSchemas'
 import IntlMessages from '../../helpers/IntlMessages'
 import {Colxx} from '../../components/common/CustomBootstrap'
 
-const Register = () => {
+const Signup = () => {
   const email = 'demo@gogo.com'
   const password = 'gogo123'
   const country = 'Nigeria'
@@ -36,7 +36,7 @@ const Register = () => {
     country,
   }
 
-  const onUserRegister = () => {
+  const onUserSignup = () => {
     if (email !== '' && password !== '') {
       // props.history.push("/");
       console.log('Success')
@@ -79,7 +79,7 @@ const Register = () => {
             <Formik
               initialValues={initialValues}
               validationSchema={SignupSchema}
-              onValidSubmit={onUserRegister()}
+              onValidSubmit={onUserSignup()}
               component={({
                 /*isSubmitting, isValidating, error, */ handleSubmit,
               }) => (
@@ -120,7 +120,7 @@ const Register = () => {
                       color="primary"
                       className="btn-shadow btn-block font-weight-normal btn-auth"
                       size="lg"
-                      onClick={() => onUserRegister()}
+                      onClick={() => onUserSignup()}
                     >
                       <IntlMessages id="user.register-button" />
                     </Button>
@@ -150,4 +150,4 @@ const mapStateToProps = ({authUser}) => {
 
 export default connect(mapStateToProps, {
   registerUser,
-})(Register)
+})(Signup)

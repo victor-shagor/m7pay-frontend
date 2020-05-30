@@ -1,25 +1,32 @@
 import React from 'react'
-import {Row, Card, CardTitle, Form, Label, Input, Button} from 'reactstrap'
-import {NavLink, Redirect, useHistory} from 'react-router-dom'
-import {useSelector, useDispatch} from 'react-redux'
+import {Redirect /*, useHistory*/} from 'react-router-dom'
+import {useSelector /*, useDispatch*/} from 'react-redux'
+import {Row, Card, CardTitle} from 'reactstrap'
+import {Formik} from 'formik'
 
-import {loginUser} from '../../redux/actions'
+// import {loginUser} from '../../redux/actions'
 import {selectUser /*selectLoadingStatus*/} from '../../redux/selectors'
 import {Colxx} from '../../components/common/CustomBootstrap'
 import IntlMessages from '../../helpers/IntlMessages'
+import {LoginSchema} from '../../helpers/ValidationSchemas'
+import LoginForm from '../../components/pages/LoginForm'
 
 const Login = () => {
   const user = useSelector(selectUser)
   // const loading = useSelector(selectLoadingStatus)
-  const dispatch = useDispatch()
-  const history = useHistory()
-  const email = 'demo@gogo.com'
-  const password = 'gogo123'
+  // const dispatch = useDispatch()
+  // const history = useHistory()
+  // const email = 'demo@gogo.com'
+  // const password = 'gogo123'
+  const initialValues = {
+    email: '',
+    password: '',
+  }
 
-  const onUserLogin = () => {
-    if (email !== '' && password !== '') {
-      dispatch(loginUser({email, password}, history))
-    }
+  const onUserLogin = (values, {setSubmitting}) => {
+    console.log(values, setSubmitting)
+    // dispatch(loginUser(values, history))
+    setSubmitting(false)
   }
   return (
     <>
@@ -47,57 +54,12 @@ const Login = () => {
                 <div className="mb-3">
                   <IntlMessages id="user.login-continue" />
                 </div>
-                <Form>
-                  <Label className="form-group has-float-label mb-4">
-                    <Input type="email" defaultValue={email} />
-                    <span>
-                      <IntlMessages id="user.email" />
-                    </span>
-                  </Label>
-                  <Label className="form-group has-float-label mb-4">
-                    <Input type="password" defaultValue={password} />
-                    <span>
-                      <IntlMessages id="user.password" />
-                    </span>
-                  </Label>
-                  <div className="mb-4 font-weight-bold">
-                    <NavLink to={`/auth/forgot-password`}>
-                      <IntlMessages id="user.forgot-password-question" />
-                    </NavLink>
-                  </div>
-                  <div className="d-flex justify-content-between align-items-center">
-                    <div>
-                      New User?{' '}
-                      <NavLink to={`/auth/register`} className="primary-red">
-                        <span className="font-weight-bold">
-                          <IntlMessages id="user.register-link" />
-                        </span>
-                      </NavLink>
-                    </div>
-                    <Button
-                      color="primary"
-                      className="btn-shadow btn-auth"
-                      size="lg"
-                      onClick={() => onUserLogin()}
-                    >
-                      <IntlMessages id="user.login-button" />
-                    </Button>
-                  </div>
-                  <div className="d-flex justify-content-between align-items-center mt-4 auth-footer">
-                    <div className="mt-4">
-                      <span className="text-muted">
-                        <IntlMessages id="user.login-trouble" />{' '}
-                      </span>
-                      <span className="font-weight-bold">
-                        <IntlMessages id="user.login-support" />
-                      </span>
-                    </div>
-                    <div className="text-muted mt-4">
-                      <IntlMessages id="user.login-terms" /> |{' '}
-                      <IntlMessages id="user.login-privacy" />
-                    </div>
-                  </div>
-                </Form>
+                <Formik
+                  initialValues={initialValues}
+                  validationSchema={LoginSchema}
+                  onSubmit={onUserLogin}
+                  component={LoginForm}
+                />
               </div>
             </Card>
           </Colxx>
