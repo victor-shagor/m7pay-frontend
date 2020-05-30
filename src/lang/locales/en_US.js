@@ -4,8 +4,9 @@ Table of Contents
 
 01.General
 02.User Login, Logout, Register
-03.Menu
-04.Error Page
+03.Form Errors
+04.Menu
+05.Error Page
 */
 
 module.exports = {
@@ -40,7 +41,13 @@ module.exports = {
   'user.buy': 'BUY',
   'user.username': 'Username',
 
-  /* 03.Menu */
+  /* 03.Form Errors */
+  'error.required': 'Required',
+  'error.tooShort': 'Too short!',
+  'error.tooLong': 'Too long!',
+  'error.invalid.email': 'Valid email is required',
+
+  /* 04.Menu */
   'menu.app': 'Home',
   'menu.dashboards': 'Dashboards',
   'menu.m7pay': 'm7Pay',
@@ -56,7 +63,7 @@ module.exports = {
   'menu.docs': 'Docs',
   'menu.blank-page': 'Blank Page',
 
-  /* 04.Error Page */
+  /* 05.Error Page */
   'pages.error-title': 'Ooops... looks like an error occurred!',
   'pages.error-code': 'Error code',
   'pages.go-back-home': 'GO BACK HOME',

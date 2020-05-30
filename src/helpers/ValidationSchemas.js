@@ -37,7 +37,8 @@ export const LoginSchema = Yup.object().shape({
 
 export const ForgotPasswordSchema = Yup.object().shape({
   email: Yup.string()
-    .min(2, 'Too short')
-    .max(50, 'Too long')
-    .email('Valid email is required'),
+    .required('error.required')
+    .min(2, 'error.tooShort')
+    .max(50, 'error.tooLong')
+    .email('error.invalid.email'),
 })

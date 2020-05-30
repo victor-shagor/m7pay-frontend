@@ -1,20 +1,21 @@
 import React from 'react'
-import {Row, Card, CardTitle, Form, Label, Input, Button} from 'reactstrap'
-import {Formik /*Field*/} from 'formik'
 import {NavLink} from 'react-router-dom'
+import {Row, Card, CardTitle} from 'reactstrap'
+import {Formik} from 'formik'
 
 import {Colxx} from '../../components/common/CustomBootstrap'
 import {ForgotPasswordSchema} from '../../helpers/ValidationSchemas'
 import IntlMessages from '../../helpers/IntlMessages'
+import ForgotPasswordForm from '../../components/pages/ForgotPasswordForm'
 
 const ForgotPassword = () => {
-  const email = 'demo@gogo.com'
   const initialValues = {
-    email,
+    email: '',
   }
 
   const onPasswordSubmit = (values, {setSubmitting}) => {
     console.log(values, setSubmitting)
+    setSubmitting(false)
   }
 
   return (
@@ -40,31 +41,7 @@ const ForgotPassword = () => {
               initialValues={initialValues}
               validationSchema={ForgotPasswordSchema}
               onSubmit={onPasswordSubmit}
-              component={({handleSubmit, values}) => (
-                <Form
-                  className="av-tooltip tooltip-label-right"
-                  onSubmit={handleSubmit}
-                >
-                  <Label className="form-group has-float-label mb-4">
-                    <Input type="email" value={values.email} />
-                    {/* <Field name="email" type="email" as={Input} /> */}
-                    <span>
-                      <IntlMessages id="user.email" />
-                    </span>
-                  </Label>
-
-                  <div className="d-flex justify-content-end align-items-center">
-                    <Button
-                      href="/app"
-                      color="primary"
-                      className="btn-shadow btn-auth btn-block"
-                      size="lg"
-                    >
-                      <IntlMessages id="user.reset-password-button" />
-                    </Button>
-                  </div>
-                </Form>
-              )}
+              component={ForgotPasswordForm}
             />
             <div className="mt-2">
               New User?{' '}
