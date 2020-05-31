@@ -7,6 +7,7 @@ import {Colxx} from '../../components/common/CustomBootstrap'
 import {ForgotPasswordSchema} from '../../helpers/ValidationSchemas'
 import IntlMessages from '../../helpers/IntlMessages'
 import ForgotPasswordForm from '../../components/pages/ForgotPasswordForm'
+import {Helmet} from 'react-helmet'
 
 const ForgotPassword = () => {
   const initialValues = {
@@ -23,6 +24,9 @@ const ForgotPassword = () => {
   return (
     <Row className="h-100">
       <Colxx xxs="12" md="10" className="mx-auto my-auto">
+        <Helmet>
+          <title>Forgot Password | m7Pay</title>
+        </Helmet>
         <Card className="auth-card">
           <div className="position-relative image-side ">
             <div>
