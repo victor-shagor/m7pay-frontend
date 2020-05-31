@@ -10,7 +10,7 @@ import IntlMessages from '../../helpers/IntlMessages'
 import {Colxx} from '../../components/common/CustomBootstrap'
 import SignupForm from '../../components/pages/SignupForm'
 
-const Signup = () => {
+const Signup = ({history}) => {
   // const email = 'demo@gogo.com'
   // const password = 'gogo123'
 
@@ -21,12 +21,13 @@ const Signup = () => {
   }
 
   const onUserSignup = (values, {setSubmitting}) => {
-    // props.history.push("/");
     // Send only country value instead of object... in saga
     // values.country = values.country.value
+    // const history = useHistory()
     console.log(values)
     // eslint-disable-next-line no-alert
     alert('Signup success!')
+    history.push('/auth/register-success', values.email)
     setSubmitting(false)
   }
 

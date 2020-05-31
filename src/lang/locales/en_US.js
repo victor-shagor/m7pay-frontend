@@ -38,6 +38,8 @@ module.exports = {
     "By clicking on the 'Create My Account' button, you agree to M7Pay's ",
   'user.register-terms': 'terms of acceptable use.',
   'user.reset-password-button': 'Reset Password',
+  'user.register-success-trouble': 'Still having trouble?',
+  'user.register-success-support': 'Contact our support team',
   'user.buy': 'BUY',
   'user.username': 'Username',
 

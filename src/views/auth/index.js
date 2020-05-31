@@ -3,6 +3,8 @@ import {Route, Switch, Redirect} from 'react-router-dom'
 import AuthLayout from '../../layout/AuthLayout'
 import Login from './login'
 import Register from './register'
+import RegisterSuccess from './register-success'
+
 const ForgotPassword = lazy(() => import('./forgot-password'))
 
 const User = ({match}) => {
@@ -12,6 +14,10 @@ const User = ({match}) => {
         <Redirect exact from={`${match.url}/`} to={`${match.url}/login`} />
         <Route path={`${match.url}/login`} component={Login} />
         <Route path={`${match.url}/register`} component={Register} />
+        <Route
+          path={`${match.url}/register-success`}
+          component={RegisterSuccess}
+        />
         <Route
           path={`${match.url}/forgot-password`}
           component={ForgotPassword}

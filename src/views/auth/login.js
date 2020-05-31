@@ -10,6 +10,7 @@ import {Colxx} from '../../components/common/CustomBootstrap'
 import IntlMessages from '../../helpers/IntlMessages'
 import {LoginSchema} from '../../helpers/ValidationSchemas'
 import LoginForm from '../../components/pages/LoginForm'
+import {Helmet} from 'react-helmet'
 
 const Login = () => {
   const user = useSelector(selectUser)
@@ -37,6 +38,9 @@ const Login = () => {
       ) : (
         <Row className="h-100">
           <Colxx xxs="12" md="10" className="mx-auto my-auto">
+            <Helmet>
+              <title>Login | m7Pay</title>
+            </Helmet>
             <Card className="auth-card">
               <div className="position-relative image-side">
                 <div>

@@ -5700,6 +5700,10 @@ input:-webkit-autofill {
     .auth-footer {
       font-size: 0.625rem;
     }
+    .reg-success-img {
+      width: 25%;
+      height: 25%;
+    }
   }
 
   @include respond-below(md) {
@@ -5715,6 +5719,10 @@ input:-webkit-autofill {
     .form-side {
       width: 100%;
       padding: 60px;
+      .reg-success-img {
+        width: 20%;
+        height: 20%;
+      }
     }
   }
 
