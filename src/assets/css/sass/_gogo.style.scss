@@ -62,6 +62,16 @@ $sub-menu-width-lg: 220px;
 $sub-menu-width-md: 200px;
 $sub-menu-width-xs: 190px;
 
+//$sub-menu-width: 120px;
+//$sub-menu-width-lg: 110px;
+//$sub-menu-width-md: 90px;
+//$sub-menu-width-xs: 80px;
+
+$new-menu-width: 40px;
+$new-menu-width-lg: 30px;
+$new-menu-width-md: 20px;
+$new-menu-width-xs: 10px;
+
 $navbar-height: 120px;
 $navbar-height-xs: 70px;
 $navbar-height-md: 80px;
@@ -2150,7 +2160,7 @@ button {
     }
 
     ul {
-      display: none;
+      //display: none;
 
       li {
         margin-bottom: 10px;
@@ -2244,18 +2254,22 @@ button {
   &.sub-hidden .sub-menu,
   &.menu-sub-hidden .sub-menu,
   &.menu-hidden .sub-menu {
-    transform: translateX(-$sub-menu-width);
+    transform: translateX(-$main-menu-width);
+    //transform: translateX(-$sub-menu-width);
 
     @include respond-below(xl) {
-      transform: translateX(-$sub-menu-width-lg);
+      transform: translateX(-$main-menu-width-lg);
+      //transform: translateX(-$sub-menu-width-lg);
     }
 
     @include respond-below(lg) {
-      transform: translateX(-$sub-menu-width-md);
+      transform: translateX(-$main-menu-width-md);
+      //transform: translateX(-$sub-menu-width-md);
     }
 
     @include respond-below(sm) {
-      transform: translateX(-$sub-menu-width-xs);
+      transform: translateX(-$main-menu-width-xs);
+      //transform: translateX(-$sub-menu-width-xs);
     }
   }
 
@@ -2705,7 +2719,7 @@ main {
   &.sub-hidden main,
   &.menu-sub-hidden main,
   &.menu-hidden main {
-    margin-left: $main-menu-width + $main-margin;
+    margin-left: $sub-menu-width + $main-margin;
   }
 
   &.main-hidden main,
@@ -2717,7 +2731,7 @@ main {
     &.sub-hidden main,
     &.menu-sub-hidden main,
     &.menu-hidden main {
-      margin-left: $main-menu-width-lg + $main-margin-lg;
+      margin-left: $sub-menu-width-lg + $main-margin-lg;
     }
 
     &.main-hidden main,
@@ -2730,7 +2744,7 @@ main {
     &.sub-hidden main,
     &.menu-sub-hidden main,
     &.menu-hidden main {
-      margin-left: $main-menu-width-md + $main-margin-md;
+      margin-left: $sub-menu-width-md + $main-margin-md;
     }
 
     &.main-hidden main,

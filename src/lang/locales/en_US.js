@@ -54,6 +54,14 @@ module.exports = {
 
   /* 04.Menu */
   'menu.app': 'Home',
+  'menu.payment-links': 'Payment Links',
+  'menu.transactions': 'Transactions',
+  'menu.customers': 'Customers',
+  'menu.payouts': 'Payouts',
+  'menu.transfers': 'Transfers',
+  'menu.wallets': 'Wallets',
+  'menu.settings': 'Settings',
+  'menu.faq': 'FAQ',
   'menu.dashboards': 'Dashboards',
   'menu.m7pay': 'm7Pay',
   'menu.start': 'Start',
