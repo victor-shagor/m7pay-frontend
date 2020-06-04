@@ -48,7 +48,7 @@ class TopNav extends Component {
       <nav className="navbar fixed-top">
         <NavLink
           to="#"
-          className="menu-button d-none d-md-block"
+          className="menu-button d-none d-md-block d-lg-none"
           onClick={(e) =>
             this.menuButtonClick(e, menuClickCount, containerClassnames)
           }

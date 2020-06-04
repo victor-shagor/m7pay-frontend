@@ -1,4 +1,4 @@
-import React, {Component, Fragment} from 'react'
+import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import ReactDOM from 'react-dom'
 import {Nav, NavItem} from 'reactstrap'
@@ -39,6 +39,7 @@ class Sidebar extends Component {
     )
   }
 
+  // eslint-disable-next-line complexity
   handleDocumentClick = (e) => {
     const container = this.getContainer()
     let isMenuClick = false
@@ -107,6 +108,7 @@ class Sidebar extends Component {
     return ReactDOM.findDOMNode(this)
   }
 
+  // eslint-disable-next-line complexity
   toggle = () => {
     const hasSubItems = this.getIsHasSubItem()
     this.props.changeSelectedMenuHasSubItems(hasSubItems)
@@ -247,61 +249,13 @@ class Sidebar extends Component {
     window.removeEventListener('resize', this.handleWindowResize)
   }
 
-  openSubMenu = (e, menuItem) => {
-    const selectedParent = menuItem.id
-    const hasSubMenu = menuItem.subs && menuItem.subs.length > 0
-    this.props.changeSelectedMenuHasSubItems(hasSubMenu)
-    if (!hasSubMenu) {
-      this.setState({
-        viewingParentMenu: selectedParent,
-        selectedParentMenu: selectedParent,
-      })
-      this.toggle()
-    } else {
-      e.preventDefault()
-
-      const {containerClassnames, menuClickCount} = this.props
-      const currentClasses = containerClassnames
-        ? containerClassnames.split(' ').filter((x) => x !== '')
-        : ''
-
-      if (!currentClasses.includes('menu-mobile')) {
-        if (
-          currentClasses.includes('menu-sub-hidden') &&
-          (menuClickCount === 2 || menuClickCount === 0)
-        ) {
-          this.props.setContainerClassnames(3, containerClassnames, hasSubMenu)
-        } else if (
-          currentClasses.includes('menu-hidden') &&
-          (menuClickCount === 1 || menuClickCount === 3)
-        ) {
-          this.props.setContainerClassnames(2, containerClassnames, hasSubMenu)
-        } else if (
-          currentClasses.includes('menu-default') &&
-          !currentClasses.includes('menu-sub-hidden') &&
-          (menuClickCount === 1 || menuClickCount === 3)
-        ) {
-          this.props.setContainerClassnames(0, containerClassnames, hasSubMenu)
-        }
-      } else {
-        this.props.addContainerClassname(
-          'sub-show-temporary',
-          containerClassnames,
-        )
-      }
-      this.setState({
-        viewingParentMenu: selectedParent,
-      })
-    }
-  }
-
   render() {
     return (
       <div className="sidebar">
         <div className="sub-menu">
           <div className="scroll">
             <PerfectScrollbar
-              option={{suppressScrollX: true, wheelPropagation: false}}
+              options={{suppressScrollX: true, wheelPropagation: false}}
             >
               {menuItems &&
                 menuItems.map((item, index) => {
@@ -331,12 +285,10 @@ class Sidebar extends Component {
                             <IntlMessages id={item.label} />
                           </a>
                         ) : (
-                          <Fragment>
-                            <NavLink to={item.to} id={`${item.id}_${index}`}>
-                              <i className={item.icon} />{' '}
-                              <IntlMessages id={item.label} />
-                            </NavLink>
-                          </Fragment>
+                          <NavLink to={item.to} id={`${item.id}_${index}`}>
+                            <i className={item.icon} />{' '}
+                            <IntlMessages id={item.label} />
+                          </NavLink>
                         )}
                       </NavItem>
                       {/*) })}*/}

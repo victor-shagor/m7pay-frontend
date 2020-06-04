@@ -2137,7 +2137,8 @@ button {
     background: $foreground-color;
     z-index: 2;
     position: fixed;
-    left: $main-menu-width;
+    left: 0;
+    //left: $main-menu-width;
     border-left: 1px solid $separator-color-light;
     @include depth(2);
     transition: transform $menu-collapse-time;
@@ -2254,7 +2255,8 @@ button {
   &.sub-hidden .sub-menu,
   &.menu-sub-hidden .sub-menu,
   &.menu-hidden .sub-menu {
-    transform: translateX(-$main-menu-width);
+    transform: translateX(0);
+    //transform: translateX(-$main-menu-width);
     //transform: translateX(-$sub-menu-width);
 
     @include respond-below(xl) {
