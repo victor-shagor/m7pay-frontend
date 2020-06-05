@@ -1,6 +1,5 @@
-import React, {Component} from 'react'
+import React, {Component, createRef} from 'react'
 import {connect} from 'react-redux'
-import ReactDOM from 'react-dom'
 import {Nav, NavItem} from 'reactstrap'
 import {NavLink, withRouter} from 'react-router-dom'
 import classnames from 'classnames'
@@ -41,7 +40,7 @@ class Sidebar extends Component {
 
   // eslint-disable-next-line complexity
   handleDocumentClick = (e) => {
-    const container = this.getContainer()
+    const container = this.container.current
     let isMenuClick = false
     if (
       e.target &&
@@ -103,10 +102,11 @@ class Sidebar extends Component {
     return nextClasses
   }
 
-  getContainer = () => {
-    // eslint-disable-next-line react/no-find-dom-node
-    return ReactDOM.findDOMNode(this)
-  }
+  // getContainer = () => {
+  //   // eslint-disable-next-line react/no-find-dom-node
+  //   return ReactDOM.findDOMNode(this)
+  // }
+  container = createRef()
 
   // eslint-disable-next-line complexity
   toggle = () => {
@@ -162,13 +162,13 @@ class Sidebar extends Component {
   }
 
   addEvents = () => {
-    ;['click', 'touchstart', 'touchend'].forEach((event) =>
+    ;['touchstart', 'touchend'].forEach((event) =>
       document.addEventListener(event, this.handleDocumentClick, true),
     )
   }
 
   removeEvents = () => {
-    ;['click', 'touchstart', 'touchend'].forEach((event) =>
+    ;['touchstart', 'touchend'].forEach((event) =>
       document.removeEventListener(event, this.handleDocumentClick, true),
     )
   }
@@ -251,7 +251,7 @@ class Sidebar extends Component {
 
   render() {
     return (
-      <div className="sidebar">
+      <div className="sidebar" ref={this.container}>
         <div className="sub-menu">
           <div className="scroll">
             <PerfectScrollbar

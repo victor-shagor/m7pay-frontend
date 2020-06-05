@@ -2257,7 +2257,6 @@ button {
   &.menu-hidden .sub-menu {
     transform: translateX(0);
     //transform: translateX(-$main-menu-width);
-    //transform: translateX(-$sub-menu-width);
 
     @include respond-below(xl) {
       transform: translateX(-$main-menu-width-lg);
@@ -2272,6 +2271,21 @@ button {
     @include respond-below(sm) {
       transform: translateX(-$main-menu-width-xs);
       //transform: translateX(-$sub-menu-width-xs);
+    }
+  }
+  &.sub-hidden .sub-menu {
+    transform: translateX(-$main-menu-width);
+
+    @include respond-below(xl) {
+      transform: translateX(-$main-menu-width-lg - $sub-menu-width-lg);
+    }
+
+    @include respond-below(lg) {
+      transform: translateX(-$main-menu-width-md - $sub-menu-width-md);
+    }
+
+    @include respond-below(sm) {
+      transform: translateX(-$main-menu-width-xs - $sub-menu-width-xs)
     }
   }
 
@@ -2327,7 +2341,7 @@ button {
     }
 
     .sub-menu {
-      transform: translateX(-$sub-menu-width);
+      transform: translateX(-$main-menu-width);
     }
 
     @include respond-below(xl) {
@@ -2336,7 +2350,7 @@ button {
       }
 
       .sub-menu {
-        transform: translateX(-$sub-menu-width-lg);
+        transform: translateX(-$main-menu-width-lg);
       }
     }
 
@@ -2346,13 +2360,13 @@ button {
       }
 
       .sub-menu {
-        transform: translateX(-$sub-menu-width-md);
+        transform: translateX(-$main-menu-width-md);
       }
     }
 
     @include respond-below(sm) {
       .sub-menu {
-        transform: translateX(-$sub-menu-width-xs);
+        transform: translateX(-$main-menu-width-xs);
       }
     }
   }
@@ -2671,7 +2685,7 @@ button {
 
 /* 15.Main*/
 main {
-  margin-left: $sub-menu-width + $main-menu-width + $main-margin;
+  margin-left: $sub-menu-width + $main-margin;
   margin-top: $navbar-height + $main-margin - 15;
   margin-right: $main-margin;
   margin-bottom: $main-margin - 20;
@@ -2728,6 +2742,9 @@ main {
   &.menu-hidden main {
     margin-left: $main-margin;
   }
+  &.sub-hidden main {
+    margin-left: $sub-menu-width;
+  }
 
   @include respond-below(xl) {
     &.sub-hidden main,
@@ -2738,6 +2755,9 @@ main {
 
     &.main-hidden main,
     &.menu-hidden main {
+      margin-left: $main-margin-lg;
+    }
+    &.sub-hidden main {
       margin-left: $main-margin-lg;
     }
   }
@@ -2751,6 +2771,9 @@ main {
 
     &.main-hidden main,
     &.menu-hidden main {
+      margin-left: $main-margin-md;
+    }
+    &.sub-hidden main {
       margin-left: $main-margin-md;
     }
   }
