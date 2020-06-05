@@ -85,6 +85,10 @@ export const setContainerClassnames = (
       currentClasses.includes('menu-sub-hidden')
     ) {
       nextClasses = 'menu-default menu-sub-hidden'
+      // TODO: Fix display bug from removing sub-hidden class
+      // Class was removed because it would hide sidebar
+      // on switch to lg screen by redocking dev tools
+      // nextClasses = 'menu-default menu-sub-hidden sub-hidden'
     } else if (currentClasses.includes('menu-default')) {
       nextClasses = 'menu-default'
     } else if (currentClasses.includes('menu-sub-hidden')) {

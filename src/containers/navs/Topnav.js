@@ -62,6 +62,9 @@ class TopNav extends Component {
         >
           <MobileMenuIcon />
         </NavLink>
+        <div className="navbar-logo d-md-flex">
+          <img src="/assets/img/logo-symbol.svg" alt="Brand Logo" />
+        </div>
 
         <div className="ml-auto">
           <div className="header-icons d-inline-block align-middle">
