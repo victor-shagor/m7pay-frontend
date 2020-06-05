@@ -1,15 +1,15 @@
-import React, { Component } from "react";
-import { Route, withRouter, Switch, Redirect } from "react-router-dom";
-import { connect } from "react-redux";
+import React, {Component} from 'react'
+import {Route, withRouter, Switch, Redirect} from 'react-router-dom'
+import {connect} from 'react-redux'
 
-import AppLayout from "../../layout/AppLayout";
-import gogo from "./gogo";
-import secondMenu from "./second-menu";
-import blankPage from "./blank-page";
+import AppLayout from '../../layout/AppLayout'
+import gogo from './gogo'
+import secondMenu from './second-menu'
+import blankPage from './blank-page'
 
 class App extends Component {
   render() {
-    const { match } = this.props;
+    const {match} = this.props
 
     return (
       <AppLayout>
@@ -21,17 +21,12 @@ class App extends Component {
           <Redirect to="/error" />
         </Switch>
       </AppLayout>
-    );
+    )
   }
 }
-const mapStateToProps = ({ menu }) => {
-  const { containerClassnames } = menu;
-  return { containerClassnames };
-};
+const mapStateToProps = ({menu}) => {
+  const {containerClassnames} = menu
+  return {containerClassnames}
+}
 
-export default withRouter(
-  connect(
-    mapStateToProps,
-    {}
-  )(App)
-);
+export default withRouter(connect(mapStateToProps, {})(App))
