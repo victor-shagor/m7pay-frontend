@@ -3,19 +3,17 @@ import {Route, withRouter, Switch, Redirect} from 'react-router-dom'
 import {connect} from 'react-redux'
 
 import AppLayout from '../../layout/AppLayout'
-import gogo from './gogo'
+import m7Pay from './m7pay'
 import secondMenu from './second-menu'
 import blankPage from './blank-page'
 
 class App extends Component {
   render() {
     const {match} = this.props
-
     return (
       <AppLayout>
         <Switch>
-          <Redirect exact from={`${match.url}/`} to={`${match.url}/m7pay`} />
-          <Route path={`${match.url}/m7pay`} component={gogo} />
+          <Route path={`${match.url}/`} component={m7Pay} />
           <Route path={`${match.url}/second-menu`} component={secondMenu} />
           <Route path={`${match.url}/blank-page`} component={blankPage} />
           <Redirect to="/error" />

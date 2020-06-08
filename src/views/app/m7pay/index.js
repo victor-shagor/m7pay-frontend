@@ -1,9 +1,9 @@
-import React from "react";
-import { Redirect, Route, Switch } from "react-router-dom";
+import React from 'react'
+import {Redirect, Route, Switch} from 'react-router-dom'
 
-import start from "./start";
+import start from './start'
 
-const Gogo = ({ match }) => (
+const M7Pay = ({match}) => (
   <div className="dashboard-wrapper">
     <Switch>
       <Redirect exact from={`${match.url}/`} to={`${match.url}/start`} />
@@ -11,6 +11,6 @@ const Gogo = ({ match }) => (
       <Redirect to="/error" />
     </Switch>
   </div>
-);
+)
 
-export default Gogo;
+export default M7Pay

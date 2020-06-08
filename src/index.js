@@ -1,19 +1,19 @@
-import "./assets/css/vendor/bootstrap.min.css";
-import "react-circular-progressbar/dist/styles.css";
-import "react-perfect-scrollbar/dist/css/styles.css";
-import "react-big-calendar/lib/css/react-big-calendar.css";
-import "react-table/react-table.css";
+import './assets/css/vendor/bootstrap.min.css'
+import 'react-circular-progressbar/dist/styles.css'
+import 'react-perfect-scrollbar/dist/css/styles.css'
+import 'react-big-calendar/lib/css/react-big-calendar.css'
+import 'react-table/react-table.css'
 
-import { isMultiColorActive, defaultColor } from "./constants/defaultValues";
+import {isMultiColorActive, defaultColor} from './constants/defaultValues'
 
 const color =
   isMultiColorActive &&
-  localStorage.getItem("themeColor") &&
-  localStorage.getItem("themeColor") !== undefined
-    ? localStorage.getItem("themeColor")
-    : defaultColor;
+  localStorage.getItem('themeColor') &&
+  localStorage.getItem('themeColor') !== undefined
+    ? localStorage.getItem('themeColor')
+    : defaultColor
 
-localStorage.setItem("themeColor", color);
+localStorage.setItem('themeColor', color)
 
-require("./assets/css/sass/themes/gogo." + color + ".scss");
-require("./AppRenderer");
+require(`./assets/css/sass/themes/m7pay.${color}.scss`)
+require('./AppRenderer')
