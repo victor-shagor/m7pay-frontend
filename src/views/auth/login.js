@@ -32,7 +32,8 @@ const Login = () => {
     setSubmitting(false)
   }
   return (
-    <div>
+    // eslint-disable-next-line react/jsx-no-useless-fragment
+    <>
       {user ? (
         <Redirect to="/" />
       ) : (
@@ -71,7 +72,7 @@ const Login = () => {
           </Colxx>
         </Row>
       )}
-    </div>
+    </>
   )
 }
 
