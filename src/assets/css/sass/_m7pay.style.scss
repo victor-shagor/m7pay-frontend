@@ -731,11 +731,18 @@ button {
 .btn-acct-type {
   background-color: #f7f7f7 !important;
   width: 80%;
-  border-radius: 0;
   &:hover {
     background-color: $theme-color-1 !important;
     color: #ffffff;
   }
+}
+
+.btn-no-br {
+  border-radius: 0;
+}
+
+.btn-white {
+  background-color: #ffffff;
 }
 
 .btn-empty {

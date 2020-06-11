@@ -1,5 +1,6 @@
 import React, {Fragment} from 'react'
-import {Row, Card, CardBody, Button} from 'reactstrap'
+import {Row, Card, CardBody} from 'reactstrap'
+import {NavLink} from 'react-router-dom'
 import {Helmet} from 'react-helmet'
 import {Colxx} from '../../../../components/common/CustomBootstrap'
 import BusinessReg from '../../../../assets/img/business-reg.svg'
@@ -36,12 +37,12 @@ const StartOnboarding = () => {
                 started.
               </p>
               <div>
-                <Button
-                  color="transparent"
-                  className="btn-acct-type btn-block mx-auto font-weight-bold"
+                <NavLink
+                  to="/app/onboarding/business"
+                  className="btn btn-transparent btn-acct-type btn-no-br btn-block mx-auto font-weight-bold"
                 >
                   Select
-                </Button>
+                </NavLink>
               </div>
             </CardBody>
           </Card>
@@ -59,12 +60,12 @@ const StartOnboarding = () => {
                 supermarkets, concerts, and more.
               </p>
               <div>
-                <Button
-                  color="transparent"
-                  className="btn-acct-type btn-block mx-auto font-weight-bold"
+                <NavLink
+                  to="/app/onboarding/personal"
+                  className="btn btn-transparent btn-acct-type btn-no-br btn-block mx-auto font-weight-bold"
                 >
                   Select
-                </Button>
+                </NavLink>
               </div>
             </CardBody>
           </Card>

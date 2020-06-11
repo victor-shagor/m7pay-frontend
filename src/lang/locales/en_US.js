@@ -62,6 +62,7 @@ module.exports = {
   'menu.wallets': 'Wallets',
   'menu.settings': 'Settings',
   'menu.faq': 'FAQ',
+  'menu.logout': 'Logout',
   'menu.dashboards': 'Dashboards',
   'menu.m7pay': 'm7Pay',
   'menu.start': 'Start',

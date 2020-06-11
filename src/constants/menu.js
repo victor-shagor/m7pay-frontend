@@ -65,6 +65,12 @@ const data = [
     newWindow: true,
     to: '/app/m7pay/start',
   },
+  {
+    id: 'logout',
+    icon: 'simple-icon-logout',
+    label: 'menu.logout',
+    to: '/app/m7pay/start',
+  },
   // ],
   // },
   // {
