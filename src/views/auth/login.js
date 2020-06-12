@@ -10,7 +10,7 @@ import {selectUser /*selectLoadingStatus*/} from '../../redux/selectors'
 import {Colxx} from '../../components/common/CustomBootstrap'
 import IntlMessages from '../../helpers/IntlMessages'
 import {LoginSchema} from '../../helpers/ValidationSchemas'
-import LoginForm from '../../components/pages/LoginForm'
+import LoginForm from '../../components/pages/auth/LoginForm'
 
 const Login = () => {
   const user = useSelector(selectUser)

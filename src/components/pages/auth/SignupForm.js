@@ -1,9 +1,9 @@
 import React from 'react'
 import {Button, Form, FormGroup} from 'reactstrap'
 import {Field} from 'formik'
-import IntlMessages from '../../helpers/IntlMessages'
-import CustomFormInput from '../../components/common/CustomFormInput'
-import CustomFormSelect from '../common/CustomFormSelect'
+import IntlMessages from '../../../helpers/IntlMessages'
+import CustomFormInput from '../../common/CustomFormInput'
+import CustomFormSelect from '../../common/CustomFormSelect'
 
 const countries = [
   {label: 'Nigeria', value: 'Nigeria'},
@@ -13,7 +13,7 @@ const countries = [
 
 const SignupForm = ({handleSubmit, isValid, isSubmitting}) => (
   <Form className="av-tooltip tooltip-label-right" onSubmit={handleSubmit}>
-    <FormGroup className="form-group has-float-label error-l-100 mb-4">
+    <FormGroup className="has-float-label error-l-100 mb-4">
       <Field
         component={CustomFormInput}
         name="email"
@@ -21,7 +21,7 @@ const SignupForm = ({handleSubmit, isValid, isSubmitting}) => (
         testId="email"
       />
     </FormGroup>
-    <FormGroup className="form-group has-float-label error-l-100 mb-2">
+    <FormGroup className="has-float-label error-l-100 mb-2">
       <Field
         component={CustomFormInput}
         name="password"
@@ -29,11 +29,11 @@ const SignupForm = ({handleSubmit, isValid, isSubmitting}) => (
         testId="password"
       />
     </FormGroup>
-    <FormGroup className="form-group has-float-label error-l-100 mb-2">
+    <FormGroup className="has-float-label error-l-100 mb-2">
       <Field
         component={CustomFormSelect}
         name="country"
-        type="country"
+        type="text"
         testId="country"
         placeholder="Choose your country"
         options={countries}

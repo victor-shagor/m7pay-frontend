@@ -30,6 +30,11 @@ module.exports = {
   'user.password': 'Password',
   'user.forgot-password-question': 'Forgot password?',
   'user.fullname': 'Full Name',
+  'user.firstName': 'First Name',
+  'user.lastName': 'Last Name',
+  'user.dob': 'Date of Birth',
+  'user.address': 'Residence Address',
+  'user.phone': 'Phone Number',
   'user.register-link': 'Create account',
   'user.register-button': 'Create My Account',
   'user.register-country-none': "Don't see your country?",
@@ -51,6 +56,9 @@ module.exports = {
   'error.invalid.email': 'Valid email is required',
   'error.invalid.password':
     'Password must contain at least 1 lowercase, 1 uppercase, 1 number and 8 characters',
+  'error.invalid.phone': 'Valid phone number is required',
+  'error.state': 'Please select state',
+  'error.country': 'Please select country',
 
   /* 04.Menu */
   'menu.app': 'Home',

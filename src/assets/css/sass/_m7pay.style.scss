@@ -101,7 +101,8 @@ $theme-color-orange: #e2863b;
 $theme-color-red: #880a1f;
 
 $info-color: #3195a5;
-$success-color: #3e884f;
+$success-color: #008e33;
+//$success-color: #3e884f;
 $warning-color: #b69329;
 $error-color: #c43d4b;
 
@@ -733,7 +734,7 @@ button {
   width: 80%;
   &:hover {
     background-color: $theme-color-1 !important;
-    color: #ffffff;
+    color: white;
   }
 }
 
@@ -743,6 +744,13 @@ button {
 
 .btn-white {
   background-color: #ffffff;
+}
+
+.btn-green-hover {
+  &:hover {
+    background-color: $success-color;
+    color: white;
+  }
 }
 
 .btn-empty {
