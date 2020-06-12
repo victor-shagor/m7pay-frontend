@@ -35,6 +35,12 @@ module.exports = {
   'user.dob': 'Date of Birth',
   'user.address': 'Residence Address',
   'user.phone': 'Phone Number',
+  'user.businessName': 'Name of Business',
+  'user.website': 'Website',
+  'user.bankAcctName': 'Bank Account Name',
+  'user.bankAcctNo': 'Bank Account Number',
+  'user.businessAddress': 'Business Address',
+  'user.postalCode': 'Postal Code',
   'user.register-link': 'Create account',
   'user.register-button': 'Create My Account',
   'user.register-country-none': "Don't see your country?",
@@ -57,6 +63,8 @@ module.exports = {
   'error.invalid.password':
     'Password must contain at least 1 lowercase, 1 uppercase, 1 number and 8 characters',
   'error.invalid.phone': 'Valid phone number is required',
+  'error.invalid.bankAcctNo': 'Valid account number is required',
+  'error.invalid.postalCode': 'Valid postal code is required',
   'error.state': 'Please select state',
   'error.country': 'Please select country',
 

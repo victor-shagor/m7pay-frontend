@@ -4168,7 +4168,11 @@ select.form-control:not([size]):not([multiple]) {
   width: 100% !important;
   outline: initial !important;
 }
-
+.has-float-label {
+  .react-datepicker__input-container input {
+    height: calc(1.5em + .75rem + 2px) !important;
+  }
+}
 .react-datepicker {
   border: 1px solid $separator-color !important;
   border-radius: $border-radius !important;
@@ -6161,6 +6165,10 @@ input:-webkit-autofill {
   z-index: 3;
   line-height: 1;
   padding: 0 1px;
+}
+
+.has-float-label .col label {
+  left: 1.5rem;
 }
 
 .has-float-label label::after,

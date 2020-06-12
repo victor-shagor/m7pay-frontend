@@ -1,31 +1,12 @@
-import React, {useState} from 'react'
-import {Row, Button, Card, CardBody, Collapse} from 'reactstrap'
+import React from 'react'
+import {Row, Button} from 'reactstrap'
 import {NavLink} from 'react-router-dom'
 import {Helmet} from 'react-helmet'
-import {Formik} from 'formik'
-import log from 'loglevel'
 import {Colxx} from '../../../../components/common/CustomBootstrap'
-import PersonalData from '../../../../assets/img/personal-data.svg'
-import FormError from '../../../../assets/img/checkmark-error.svg'
-// import FormSuccess from '../../../../assets/img/checkmark-success.svg'
-import {PersonalDataSchema} from '../../../../helpers/ValidationSchemas'
-import PersonalDataForm from '../../../../components/pages/onboarding/PersonalDataForm'
+import PersonalDataCard from '../../../../components/pages/onboarding/PersonalDataCard'
+import BusinessDataCard from '../../../../components/pages/onboarding/BusinessDataCard'
 
 const BusinessOnboarding = () => {
-  const [collapseOpen, setCollapseOpen] = useState(false)
-  const toggleCollapse = () => setCollapseOpen(!collapseOpen)
-  const initialValues = {
-    firstName: '',
-    lastName: '',
-    dob: 0,
-    address: '',
-    state: '',
-    country: '',
-    phone: '',
-  }
-  const submitPersDetails = (values /*, {setSubmitting}*/) => {
-    log.warn(values)
-  }
   return (
     <>
       <Helmet>
@@ -63,53 +44,12 @@ const BusinessOnboarding = () => {
       </Row>
       <Row>
         <Colxx xxs="12">
-          <Card>
-            <CardBody className="pt-4 pb-2" onClick={toggleCollapse}>
-              <Row>
-                <Colxx md="1" className="d-flex justify-content-center">
-                  <img
-                    src={PersonalData}
-                    alt="personal data"
-                    className="img-fluid"
-                    style={{width: '3rem'}}
-                  />
-                </Colxx>
-                <Colxx md="10">
-                  <h6 className="font-weight-bold">Personal Data</h6>
-                  <p>
-                    Please provide your personal data exactly as they appears on
-                    your government issued document (E.g. Int’l Passport,
-                    Drivers License, National ID card).
-                  </p>
-                </Colxx>
-                <Colxx
-                  md="1"
-                  className="text-center d-flex justify-content-center"
-                >
-                  <img
-                    src={FormError}
-                    alt="form error"
-                    className="img-fluid"
-                    style={{width: '24px'}}
-                  />
-                </Colxx>
-              </Row>
-            </CardBody>
-            {collapseOpen ? (
-              <CardBody className="pt-0">
-                <Collapse isOpen={collapseOpen}>
-                  <div className="mt-4">
-                    <Formik
-                      initialValues={initialValues}
-                      validationSchema={PersonalDataSchema}
-                      component={PersonalDataForm}
-                      onSubmit={submitPersDetails}
-                    />
-                  </div>
-                </Collapse>
-              </CardBody>
-            ) : null}
-          </Card>
+          <PersonalDataCard />
+        </Colxx>
+      </Row>
+      <Row className="mt-4">
+        <Colxx xxs="12">
+          <BusinessDataCard />
         </Colxx>
       </Row>
     </>

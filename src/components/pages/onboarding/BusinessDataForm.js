@@ -1,10 +1,20 @@
 import React from 'react'
 import {Field} from 'formik'
 import {Row, Col, Form, FormGroup, Button} from 'reactstrap'
-import {subYears} from 'date-fns'
 import CustomFormInput from '../../common/CustomFormInput'
 import CustomFormSelect from '../../common/CustomFormSelect'
-import CustomFormDateInput from '../../common/CustomFormDateInput'
+
+const currencies = [
+  {label: 'Naira', value: 'Naira'},
+  {label: 'Dollar', value: 'Dollar'},
+]
+
+const banks = [
+  {label: 'Access Bank', value: 'Access Bank'},
+  {label: 'GTB', value: 'GTB'},
+  {label: 'UBA', value: 'UBA'},
+  {label: 'Zenith', value: 'Zenith'},
+]
 
 const states = [
   {label: 'Abia', value: 'Abia'},
@@ -17,37 +27,33 @@ const countries = [
   {label: 'Kenya', value: 'Kenya'},
   {label: 'South Africa', value: 'South Africa'},
 ]
-const defaultDate = subYears(new Date(), 16)
-const maxDate = subYears(new Date(), 16)
 
-const PersonalDataForm = ({handleSubmit, isValid, isSubmitting}) => (
+const BusinessDataForm = ({handleSubmit, isValid, isSubmitting}) => (
   <Form className="av-tooltip tooltip-label-right" onSubmit={handleSubmit}>
     <FormGroup className="has-float-label error-l-100 mb-4">
       <Row>
         <Col>
           <Field
             component={CustomFormInput}
-            name="firstName"
+            name="businessName"
             type="text"
-            testId="firstName"
+            testId="businessName"
           />
         </Col>
         <Col>
           <Field
             component={CustomFormInput}
-            name="lastName"
+            name="phone"
             type="text"
-            testId="lastName"
+            testId="phone"
           />
         </Col>
         <Col>
           <Field
-            component={CustomFormDateInput}
-            dateFormat="dd-MM-yyyy"
-            maxDate={maxDate}
-            name="dob"
-            testId="dob"
-            defaultDate={defaultDate}
+            component={CustomFormInput}
+            name="email"
+            type="email"
+            testId="email"
           />
         </Col>
       </Row>
@@ -57,14 +63,66 @@ const PersonalDataForm = ({handleSubmit, isValid, isSubmitting}) => (
         <Col>
           <Field
             component={CustomFormInput}
-            name="address"
+            name="website"
             type="text"
-            testId="address"
+            testId="website"
+          />
+        </Col>
+        <Col>
+          <Field
+            component={CustomFormSelect}
+            name="currency"
+            type="text"
+            testId="currency"
+            placeholder="Preferred Currency"
+            options={currencies}
+          />
+        </Col>
+        <Col>
+          <Field
+            component={CustomFormSelect}
+            name="bankName"
+            type="text"
+            testId="bankName"
+            placeholder="Local/Payout Bank"
+            options={banks}
           />
         </Col>
       </Row>
     </FormGroup>
-    <FormGroup className="has-float-label error-l-100 mb-2">
+    <FormGroup className="has-float-label error-l-100 mb-4">
+      <Row>
+        <Col>
+          <Field
+            component={CustomFormInput}
+            name="bankAcctName"
+            type="text"
+            testId="bankAcctName"
+          />
+        </Col>
+        <Col>
+          <Field
+            component={CustomFormInput}
+            name="bankAcctNo"
+            type="text"
+            testId="bankAcctNo"
+          />
+        </Col>
+      </Row>
+    </FormGroup>
+    <FormGroup className="has-float-label error-l-100 mb-4">
+      <Row>
+        <Col>
+          <Field
+            component={CustomFormInput}
+            name="businessAddress"
+            type="text"
+            testId="businessAddress"
+          />
+        </Col>
+      </Row>
+    </FormGroup>
+    <FormGroup className="has-float-label error-l-100 mb-4">
       <Row>
         <Col>
           <Field
@@ -89,9 +147,9 @@ const PersonalDataForm = ({handleSubmit, isValid, isSubmitting}) => (
         <Col>
           <Field
             component={CustomFormInput}
-            name="phone"
+            name="postalCode"
             type="text"
-            testId="phone"
+            testId="postalCode"
           />
         </Col>
       </Row>
@@ -108,4 +166,4 @@ const PersonalDataForm = ({handleSubmit, isValid, isSubmitting}) => (
   </Form>
 )
 
-export default PersonalDataForm
+export default BusinessDataForm
