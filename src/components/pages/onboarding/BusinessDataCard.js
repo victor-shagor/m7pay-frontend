@@ -5,11 +5,11 @@ import log from 'loglevel'
 import {Colxx} from '../../common/CustomBootstrap'
 import BusinessData from '../../../assets/img/business-data.svg'
 import FormError from '../../../assets/img/checkmark-error.svg'
-// import FormSuccess from '../../../../assets/img/checkmark-success.svg'
+import FormSuccess from '../../../assets/img/checkmark-success.svg'
 import {BusinessDataSchema} from '../../../helpers/ValidationSchemas'
 import BusinessDataForm from './BusinessDataForm'
 
-const BusinessDataCard = () => {
+const BusinessDataCard = ({businessFormValid, setBusinessFormValid}) => {
   const [collapseOpen, setCollapseOpen] = useState(false)
   const toggleCollapse = () => setCollapseOpen(!collapseOpen)
   const initialValues = {
@@ -26,8 +26,11 @@ const BusinessDataCard = () => {
     country: '',
     postalCode: '',
   }
-  const submitPersDetails = (values /*, {setSubmitting}*/) => {
+  const submitPersDetails = (values, {setSubmitting}) => {
     log.warn(values)
+    // Post API submit
+    setBusinessFormValid(true)
+    setSubmitting(false)
   }
   return (
     <Card>
@@ -50,7 +53,7 @@ const BusinessDataCard = () => {
           </Colxx>
           <Colxx md="1" className="text-center d-flex justify-content-center">
             <img
-              src={FormError}
+              src={businessFormValid ? FormSuccess : FormError}
               alt="form error"
               className="img-fluid"
               style={{width: '24px'}}

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {Row, Button} from 'reactstrap'
 import {NavLink} from 'react-router-dom'
 import {Helmet} from 'react-helmet'
@@ -7,6 +7,9 @@ import PersonalDataCard from '../../../../components/pages/onboarding/PersonalDa
 import BusinessDataCard from '../../../../components/pages/onboarding/BusinessDataCard'
 
 const BusinessOnboarding = () => {
+  const [personalDataValid, setPersonalDataValid] = useState(false)
+  // const [idProofValid, setIdProofValid] = useState(false)
+  const [businessDataValid, setBusinessDataValid] = useState(false)
   return (
     <>
       <Helmet>
@@ -28,6 +31,7 @@ const BusinessOnboarding = () => {
           <Button
             color="transparent"
             className="btn-white btn-no-br btn-block btn-green-hover"
+            disabled={!personalDataValid && !businessDataValid}
           >
             <h6 className="mb-0">Submit Verification</h6>
           </Button>
@@ -44,12 +48,18 @@ const BusinessOnboarding = () => {
       </Row>
       <Row>
         <Colxx xxs="12">
-          <PersonalDataCard />
+          <PersonalDataCard
+            personalFormValid={personalDataValid}
+            setPersonalFormValid={setPersonalDataValid}
+          />
         </Colxx>
       </Row>
       <Row className="mt-4">
         <Colxx xxs="12">
-          <BusinessDataCard />
+          <BusinessDataCard
+            businessFormValid={businessDataValid}
+            setBusinessFormValid={setBusinessDataValid}
+          />
         </Colxx>
       </Row>
     </>

@@ -5,11 +5,11 @@ import log from 'loglevel'
 import {Colxx} from '../../common/CustomBootstrap'
 import PersonalData from '../../../assets/img/personal-data.svg'
 import FormError from '../../../assets/img/checkmark-error.svg'
-// import FormSuccess from '../../../../assets/img/checkmark-success.svg'
+import FormSuccess from '../../../assets/img/checkmark-success.svg'
 import {PersonalDataSchema} from '../../../helpers/ValidationSchemas'
 import PersonalDataForm from './PersonalDataForm'
 
-const PersonalDataCard = () => {
+const PersonalDataCard = ({personalFormValid, setPersonalFormValid}) => {
   const [collapseOpen, setCollapseOpen] = useState(false)
   const toggleCollapse = () => setCollapseOpen(!collapseOpen)
   const initialValues = {
@@ -21,8 +21,11 @@ const PersonalDataCard = () => {
     country: '',
     phone: '',
   }
-  const submitPersDetails = (values /*, {setSubmitting}*/) => {
+  const submitPersDetails = (values, {setSubmitting}) => {
     log.warn(values)
+    // Post API submit
+    setPersonalFormValid(true)
+    setSubmitting(false)
   }
   return (
     <Card>
@@ -46,7 +49,7 @@ const PersonalDataCard = () => {
           </Colxx>
           <Colxx md="1" className="text-center d-flex justify-content-center">
             <img
-              src={FormError}
+              src={personalFormValid ? FormSuccess : FormError}
               alt="form error"
               className="img-fluid"
               style={{width: '24px'}}
