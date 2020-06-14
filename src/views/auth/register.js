@@ -8,10 +8,10 @@ import {registerUser} from '../../redux/actions'
 import {SignupSchema} from '../../helpers/ValidationSchemas'
 import IntlMessages from '../../helpers/IntlMessages'
 import {Colxx} from '../../components/common/CustomBootstrap'
-import SignupForm from '../../components/pages/SignupForm'
+import SignupForm from '../../components/pages/auth/SignupForm'
 
 const Signup = ({history}) => {
-  // const email = 'demo@gogo.com'
+  // const email = 'demo@m7pay.com'
   // const password = 'gogo123'
 
   const initialValues = {

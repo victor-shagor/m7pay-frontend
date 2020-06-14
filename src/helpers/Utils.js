@@ -1,33 +1,13 @@
-export const mapOrder = (array, order, key) => {
-  array.sort(function (a, b) {
-    var A = a[key], B = b[key];
-    if (order.indexOf(A + "") > order.indexOf(B + "")) {
-      return 1;
-    } else {
-      return -1;
-    }
-  });
-  return array;
-};
-
-
-export const getDateWithFormat = () => {
-  const today = new Date();
-  let dd = today.getDate();
-  let mm = today.getMonth() + 1; //January is 0!
-
-  var yyyy = today.getFullYear();
-  if (dd < 10) {
-    dd = '0' + dd;
+export function toImgUploadFormData(file, folder, tag) {
+  const fd = new FormData()
+  const unsignedUploadPreset = 'm7pay'
+  if (tag) {
+    fd.append('tags', tag)
   }
-  if (mm < 10) {
-    mm = '0' + mm;
+  if (folder) {
+    fd.append('folder', folder)
   }
-  return dd + '.' + mm + '.' + yyyy;
+  fd.append('file', file)
+  fd.append('upload_preset', unsignedUploadPreset)
+  return fd
 }
-
-export const getCurrentTime=()=>{
-  const now = new Date();
-  return now.getHours() + ":" + now.getMinutes()
-}
-

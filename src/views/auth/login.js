@@ -3,21 +3,21 @@ import {Redirect /*, useHistory*/} from 'react-router-dom'
 import {useSelector /*, useDispatch*/} from 'react-redux'
 import {Row, Card, CardTitle} from 'reactstrap'
 import {Formik} from 'formik'
+import {Helmet} from 'react-helmet'
 
 // import {loginUser} from '../../redux/actions'
 import {selectUser /*selectLoadingStatus*/} from '../../redux/selectors'
 import {Colxx} from '../../components/common/CustomBootstrap'
 import IntlMessages from '../../helpers/IntlMessages'
 import {LoginSchema} from '../../helpers/ValidationSchemas'
-import LoginForm from '../../components/pages/LoginForm'
-import {Helmet} from 'react-helmet'
+import LoginForm from '../../components/pages/auth/LoginForm'
 
 const Login = () => {
   const user = useSelector(selectUser)
   // const loading = useSelector(selectLoadingStatus)
   // const dispatch = useDispatch()
   // const history = useHistory()
-  // const email = 'demo@gogo.com'
+  // const email = 'demo@m7pay.com'
   // const password = 'gogo123'
   const initialValues = {
     email: '',
@@ -32,6 +32,7 @@ const Login = () => {
     setSubmitting(false)
   }
   return (
+    // eslint-disable-next-line react/jsx-no-useless-fragment
     <>
       {user ? (
         <Redirect to="/" />

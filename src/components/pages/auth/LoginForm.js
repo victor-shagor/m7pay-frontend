@@ -1,13 +1,13 @@
 import React from 'react'
 import {Button, Form, FormGroup} from 'reactstrap'
-import {Field} from 'formik'
-import IntlMessages from '../../helpers/IntlMessages'
-import CustomFormInput from '../../components/common/CustomFormInput'
 import {NavLink} from 'react-router-dom'
+import {Field} from 'formik'
+import IntlMessages from '../../../helpers/IntlMessages'
+import CustomFormInput from '../../common/CustomFormInput'
 
 const LoginForm = ({handleSubmit, isValid, isSubmitting}) => (
   <Form className="av-tooltip tooltip-label-right mb-2" onSubmit={handleSubmit}>
-    <FormGroup className="form-group has-float-label error-l-100 mb-4">
+    <FormGroup className="has-float-label error-l-100 mb-4">
       <Field
         component={CustomFormInput}
         name="email"
@@ -16,7 +16,7 @@ const LoginForm = ({handleSubmit, isValid, isSubmitting}) => (
         placeholder="user@m7pay.com"
       />
     </FormGroup>
-    <FormGroup className="form-group has-float-label error-l-100 mb-2">
+    <FormGroup className="has-float-label error-l-100 mb-2">
       <Field
         component={CustomFormInput}
         name="password"

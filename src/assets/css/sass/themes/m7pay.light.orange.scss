@@ -9,20 +9,20 @@ $light-btn-background: #ececec;
 
 $button-text-color: #fff;
 
-$theme-color-1: #576a3d;
-$theme-color-2: #dd9c02;
-$theme-color-3: #849b65;
-$theme-color-4: #494d43;
-$theme-color-5: #d1c19a;
-$theme-color-6: #7c8174;
+$theme-color-1: #e2863b;
+$theme-color-2: #e7523e;
+$theme-color-3: #d6a779;
+$theme-color-4: #dba070;
+$theme-color-5: #f6c797;
+$theme-color-6: #d6cdca;
 
 $primary-color: #212121;
 $secondary-color: #8f8f8f;
 $muted-color: #909090;
 
-$gradient-color-1 : #7baa39;
-$gradient-color-2 : #576a3d;
-$gradient-color-3 : #73904c;
+$gradient-color-1 : #ff9c37;
+$gradient-color-2 : #d15f12;
+$gradient-color-3 : #f9a550;
 
 $shadowOffsetsTop : 1 3 10 14 19;
 $shadowBlursTop: 1.5 5 10 14 19;
@@ -36,7 +36,4 @@ $logoPath: "/assets/img/logo-black.svg";
 $logoPathMobile: "/assets/img/logo-mobile.svg";
 
 @import "../_mixins.scss";
-@import "../_gogo.style.scss";
-
-
-
+@import "../m7pay.style";
