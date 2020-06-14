@@ -70,6 +70,12 @@ class TopNav extends Component {
           <div className="header-icons d-inline-block align-middle">
             <TopnavNotifications />
           </div>
+          {/*<div className="payment-link d-inline-block">
+            <h4>
+              <i className="simple-icon-frame" />
+              &nbsp;&nbsp; Accept Payment
+            </h4>
+          </div>*/}
           <div className="user d-inline-block">
             <UncontrolledDropdown className="dropdown-menu-right">
               <DropdownToggle className="p-0" color="empty">

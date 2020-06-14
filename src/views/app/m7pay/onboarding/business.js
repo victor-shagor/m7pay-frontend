@@ -5,10 +5,11 @@ import {Helmet} from 'react-helmet'
 import {Colxx} from '../../../../components/common/CustomBootstrap'
 import PersonalDataCard from '../../../../components/pages/onboarding/PersonalDataCard'
 import BusinessDataCard from '../../../../components/pages/onboarding/BusinessDataCard'
+import IdProofCard from '../../../../components/pages/onboarding/IdProofCard'
 
 const BusinessOnboarding = () => {
   const [personalDataValid, setPersonalDataValid] = useState(false)
-  // const [idProofValid, setIdProofValid] = useState(false)
+  const [idProofValid, setIdProofValid] = useState(false)
   const [businessDataValid, setBusinessDataValid] = useState(false)
   return (
     <>
@@ -51,6 +52,14 @@ const BusinessOnboarding = () => {
           <PersonalDataCard
             personalFormValid={personalDataValid}
             setPersonalFormValid={setPersonalDataValid}
+          />
+        </Colxx>
+      </Row>
+      <Row className="mt-4">
+        <Colxx xxs="12">
+          <IdProofCard
+            idProofFormValid={idProofValid}
+            setIdProofFormValid={setIdProofValid}
           />
         </Colxx>
       </Row>

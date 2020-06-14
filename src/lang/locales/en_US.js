@@ -67,6 +67,8 @@ module.exports = {
   'error.invalid.postalCode': 'Valid postal code is required',
   'error.state': 'Please select state',
   'error.country': 'Please select country',
+  'error.size.fileTooSmall': 'File is too small',
+  'error.size.fileTooLarge': 'File is too large',
 
   /* 04.Menu */
   'menu.app': 'Home',

@@ -90,6 +90,21 @@ export const BusinessDataSchema = Yup.object().shape({
   country: Yup.string().required('error.country'),
   postalCode: Yup.string()
     .required('error.required')
-    .matches(/^\d{5,6}$/, 'error.invalid.postalCode')
-    .max(6, 'error.tooLong'),
+    .matches(/^\d{5,6}$/, 'error.invalid.postalCode'),
+})
+
+export const IdProofSchema = Yup.object().shape({
+  idType: Yup.string().required('error.required'),
+  idImage: Yup.mixed()
+    .required('error.required')
+    .test(
+      'fileMinSize',
+      'error.size.fileTooSmall',
+      (file) => file && file.size >= 10240,
+    )
+    .test(
+      'fileMaxSize',
+      'error.size.fileTooLarge',
+      (file) => file && file.size <= 3072000,
+    ),
 })

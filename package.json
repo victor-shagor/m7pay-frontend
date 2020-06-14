@@ -22,7 +22,7 @@
     "react-contextmenu": "^2.9.4",
     "react-datepicker": "^3.0.0",
     "react-dom": "^16.8.6",
-    "react-dropzone-component": "^3.2.0",
+    "react-dropzone": "^11.0.1",
     "react-google-maps": "^9.4.5",
     "react-helmet": "^6.0.0",
     "react-intl": "^4.6.3",
